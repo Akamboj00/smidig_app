@@ -8,7 +8,7 @@
         tools:context=".LoginActivity">
 
     <TextView
-            android:text="LOGIN SCREEN"
+            android:text="REGISTER SCREEN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -54,19 +54,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@color/gray"
             android:foreground="?attr/selectableItemBackground"
-            android:text="LOGIN"
+            android:text="REGISTER"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/til_register_password"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="28dp" app:layout_constraintHorizontal_bias="0.0"
-            />
+            android:id="@+id/registerButton"/>
 
     <LinearLayout
             android:layout_width="wrap_content"
@@ -77,28 +76,26 @@
             app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-                android:id="@+id/tv_dont_have_an_account"
+                android:id="@+id/already_have_an_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:padding="5dp"
-                android:text="Dont have an account?"
+                android:text="Already have an account?"
         />
 
         <TextView
-                android:id="@+id/tv_register"
+                android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:padding="5dp"
                 android:foreground="?attr/selectableItemBackground"
-                android:text="Register"
+                android:text="Login"
                 android:textStyle="bold"
         />
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
