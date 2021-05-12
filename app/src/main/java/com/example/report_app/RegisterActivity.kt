@@ -15,9 +15,13 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        tv_login.setOnClickListener{
+            onBackPressed()
+        }
+
         btn_register.setOnClickListener {
             when {
-                //Checks that the email input field is not empty and shows messsage
+                //Checks that the email input field is not empty and shows message
                 TextUtils.isEmpty(et_register_email.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,
@@ -26,7 +30,7 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
 
-                //Checks that the password input field is not empty and shows messsage
+                //Checks that the password input field is not empty and shows message
                 TextUtils.isEmpty(et_register_password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this@RegisterActivity,

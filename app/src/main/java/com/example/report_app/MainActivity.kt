@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         tv_user_id.text = "User ID :: $userId"
         tv_email_id.text = "Email ID :: $emailId"
 
+        //logout from app
         btn_logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
 
