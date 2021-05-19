@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.example.report_app.R
-import kotlinx.android.synthetic.main.activity_learn.*
+import kotlinx.android.synthetic.main.activity_profile.navigation
 import kotlinx.android.synthetic.main.navigation_view.view.*
 
 class ProfileActivity : AppCompatActivity() {
@@ -48,4 +48,5 @@ class ProfileActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
     }
+
 }
