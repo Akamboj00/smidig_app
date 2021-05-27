@@ -4,7 +4,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".pages.ReportActivity">
+        tools:context="com.example.report_app.pages.ReportActivity">
+
 
     <com.example.report_app.components.NavigationView
             android:id="@+id/navigation"
@@ -14,5 +15,471 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/navigation"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/reportHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+            <TextView
+                    android:id="@+id/reportHeaderText"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:text="Report Repairs"
+                    android:typeface="normal"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray_bright"
+                    />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/reportHolder"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+            <GridLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:columnCount="3"
+                    android:rowCount="2"
+                    android:layout_weight="8"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginBottom="26dp"
+                    android:padding="14dp"
+                    android:alignmentMode="alignMargins"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/btn"
+                    android:backgroundTint="#ececec"
+                    >
+
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card1"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintLeft_toLeftOf="@+id/battery"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/batteryImage"
+                                app:layout_constraintTop_toBottomOf="@+id/batteryImage" />
+
+                        <ImageView
+                                android:id="@+id/batteryImage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/battery"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/battery"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Battery"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toTopOf="@id/button1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/batteryImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card2"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button3"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/solarPanelImage"
+                                app:layout_constraintTop_toBottomOf="@+id/solarPanel" />
+
+                        <ImageView
+                                android:id="@+id/solarPanelImage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/solarpanel"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/solarPanel"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Solar Panel"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="@+id/solarPanelImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/solarPanelImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card3"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button6"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/lampShadeImage"
+                                app:layout_constraintTop_toBottomOf="@+id/lampShade" />
+
+                        <ImageView
+                                android:id="@+id/lampShadeImage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/lampshade"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/lampShade"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Lamp Shade"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="@+id/lampShadeImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/lampShadeImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card4"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button7"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/flexwoodImage"
+                                app:layout_constraintTop_toBottomOf="@+id/flexwoodStand" />
+
+                        <ImageView
+                                android:id="@+id/flexwoodImage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/flexwoodstand"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/flexwoodStand"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Flexwood Stand"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="@+id/flexwoodImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/flexwoodImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card5"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button8"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/turtleImage"
+                                app:layout_constraintTop_toBottomOf="@+id/turtleLamp" />
+
+                        <ImageView
+                                android:id="@+id/turtleImage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/turtlelamp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/turtleLamp"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Turtle Lamp"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="@+id/turtleImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/turtleImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                        android:id="@+id/card6"
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="8dp"
+                        tools:targetApi="lollipop">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            >
+
+                        <Button
+                                android:id="@+id/button9"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/teal_200"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Report"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/dummyImage"
+                                app:layout_constraintTop_toBottomOf="@+id/dummy" />
+
+                        <ImageView
+                                android:id="@+id/dummyImage"
+                                android:layout_width="85dp"
+                                android:layout_height="85dp"
+                                android:layout_margin="15dp"
+                                android:background="@mipmap/ic_launcher_round"
+                                android:backgroundTint="@color/bright_blue"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                                android:id="@+id/dummy"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="center"
+                                android:text="Dummy"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_bright"
+                                android:textSize="12sp"
+                                android:typeface="normal"
+                                app:layout_constraintBottom_toBottomOf="@+id/dummyImage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/dummyImage"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
