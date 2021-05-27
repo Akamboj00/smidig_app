@@ -26,6 +26,10 @@ class LearnActivity : AppCompatActivity() {
 
         runOnUiThread {
             setNavigation()
+            val newProgress = db.getProgress
+            newProgress.progress1 = 50f
+
+            db.updateProgress(newProgress)
             db.setProgress()
             setProgress()
         }
@@ -49,7 +53,7 @@ class LearnActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
         navigation.profileBtn.setOnClickListener{
-            this.startActivity(Intent(applicationContext, ProfileActivity::class.java))
+            this.startActivity(Intent(applicationContext, UsersActivity::class.java))
             overridePendingTransition(0, 0)
         }
         navigation.languageBtn.setOnClickListener{
@@ -77,7 +81,7 @@ class LearnActivity : AppCompatActivity() {
         learnSunBellPercent.text = "${progressData.progress1!!.toInt()}%"
         learnMoveSmartPercent.text = "${progressData.progress2!!.toInt()}%"
         learnStartPercentage.text = "${progressData.progress3!!.toInt()}%"
-        learnSunBellPercent.text = "${progressData.progress4!!.toInt()}%"
+        learnSunTurtlePercent.text = "${progressData.progress4!!.toInt()}%"
         learnHomePercent.text = "${progressData.progress5!!.toInt()}%"
         learnReportPercentage.text = "${progressData.progress6!!.toInt()}%"
     }

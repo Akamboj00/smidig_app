@@ -41,7 +41,7 @@ class ReportActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
         navigation.profileBtn.setOnClickListener{
-            this.startActivity(Intent(applicationContext, ProfileActivity::class.java))
+            this.startActivity(Intent(applicationContext, UsersActivity::class.java))
             overridePendingTransition(0, 0)
         }
         navigation.languageBtn.setOnClickListener{

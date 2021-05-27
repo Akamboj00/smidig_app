@@ -1,19 +1,5 @@
 package com.example.report_app
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.content.res.ColorStateList
-import android.content.res.Resources
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.example.report_app.components.NavigationView
-import com.example.report_app.pages.LanguageActivity
-import com.example.report_app.pages.LearnActivity
-import com.example.report_app.pages.ProfileActivity
-import com.example.report_app.pages.ReportActivity
-import kotlinx.android.synthetic.main.navigation_view.view.*
-
 /*
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class SetNavigationView(navigationView: NavigationView, context: Context) {
