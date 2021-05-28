@@ -7,7 +7,10 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.report_app.R
+import com.example.report_app.RegisterActivity
 import kotlinx.android.synthetic.main.activity_learn.*
+import kotlinx.android.synthetic.main.activity_learn.navigation
+import kotlinx.android.synthetic.main.activity_report.*
 import kotlinx.android.synthetic.main.navigation_view.view.*
 
 class ReportActivity : AppCompatActivity() {
@@ -16,10 +19,29 @@ class ReportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
 
+        button1.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
+        button3.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
+        button6.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
+        button7.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
+        button8.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
+        button9.setOnClickListener{
+            startActivity(Intent(this@ReportActivity, ReportingActivity::class.java))
+        }
         runOnUiThread {
             setNavigation()
         }
     }
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun setNavigation(){
