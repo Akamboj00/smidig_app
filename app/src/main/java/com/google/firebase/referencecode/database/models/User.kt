@@ -1,30 +1,34 @@
 package com.google.firebase.referencecode.database.models
 
-import com.example.report_app.databuilders.Progress
-import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
 // [START post_class]
 @IgnoreExtraProperties
-data class User(
-    var id: String? = "",
-    var userId: String? = "",
-    var firstName: String? = "",
-    var lastName: String? = "",
-    var language: String? = "",
-    var progress: ArrayList<Any>
-) {
-    // [START post_to_map]
-    @Exclude
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "id" to id,
-            "userId" to userId,
-            "firstName" to firstName,
-            "lastName" to lastName,
-            "language" to language
-        )
+class User {
+    var id: Any? = null
+    var userId: Any? = null
+    var firstName: Any? = null
+    var lastName: Any? = null
+    var language: Any? = null
+    var progress: ArrayList<Any>? = null
+
+    constructor() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
-    // [END post_to_map]
+
+    constructor(
+        id: Any?,
+        userId: Any?,
+        firstName: Any?,
+        lastName: Any?,
+        language: Any?,
+        progress: ArrayList<Any>?
+    ) {
+        this.id = id
+        this.userId = userId
+        this.firstName = firstName
+        this.lastName = lastName
+        this.language = language
+        this.progress = progress
+    }
 }
-// [END post_class]

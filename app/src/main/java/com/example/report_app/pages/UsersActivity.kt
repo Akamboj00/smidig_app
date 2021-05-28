@@ -1,5 +1,6 @@
 package com.example.report_app.pages
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Build
@@ -7,10 +8,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eksamen.pgr208.adaptors.UserRecyclerAdapter
-import com.eksamen.pgr208.adaptors.UserTemplate
 import com.example.report_app.CreateUserActivity
+import com.example.report_app.GlobalClass
 import com.example.report_app.R
 import com.example.report_app.databuilders.Progress
 import com.google.firebase.auth.ktx.auth
@@ -19,6 +22,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.referencecode.database.models.Report
 import com.google.firebase.referencecode.database.models.User
@@ -36,12 +40,38 @@ class UsersActivity : AppCompatActivity() {
 
     var userId: Int=0
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_users)
 
+        setNavigation()
+
         runOnUiThread {
+
+            Firebase.database.reference.child("users").child(Firebase.auth.uid.toString()).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val users = ArrayList<User>();
+                    for (e in snapshot.children) {
+                        val user = e.getValue<User>()
+                        users.add(user!!)
+                    }
+                    userRecycler.layoutManager = LinearLayoutManager(applicationContext)
+                    userRecycler.adapter = UserRecyclerAdapter(users, GlobalClass, user_name, user_id)
+
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {}
+
+            })
+
+
+            if(GlobalClass.user != null){
+                println(GlobalClass.user!!.firstName)
+                user_name.text = "${GlobalClass.user!!.firstName} ${GlobalClass.user!!.lastName}"
+                user_id.text = GlobalClass.user!!.userId.toString()
+            }
 
             userTestBtn.setOnClickListener{
                 writeNewUser("Maximilian", "Rasmussen", "SWE")
@@ -76,66 +106,6 @@ class UsersActivity : AppCompatActivity() {
                 })
             }
 
-            /*
-            Firebase.database.reference.child("users").child(Firebase.auth.uid.toString()).addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    /*
-                    val users: MutableList<Any?> = ArrayList()
-
-                    for (ds in dataSnapshot.children) {
-                        val data = ds.value
-                        users.add(data)
-                    }
-
-                    Log.i("TAG", "$users")
-                      */
-
-                    dataSnapshot.children.forEach { child ->
-                        // Extract Message object from the DataSnapshot
-                        val usr: User? = child.getValue<User>()
-
-                        // Use the message
-                        // [START_EXCLUDE]
-                        Log.d(TAG, "message text: ${usr?.id}")
-                        Log.d(TAG, "message sender name: ${usr?.firstName}")
-                        // [END_EXCLUDE]
-                    }
-
-
-                    val dataList: ArrayList<User> = ArrayList()
-                    for (ds in dataSnapshot.children) {
-                        val data = ds.value
-                        dataList.add(data as User)
-                    }
-
-                    val users = ArrayList<User>()
-
-                    for (data in dataList){
-                        users.add(User(data.firstName))
-                    }
-
-                    println("$dataList RRRRRRRRRRRRRRRRRRRR")
-                }
-
-                override fun onCancelled(databaseError: DatabaseError) {}
-            })
-
-             */
-
-
-            setNavigation()
-            var arrayList = ArrayList<UserTemplate>()
-
-            val user1 = UserTemplate("Maximilian", "Rasmussen", 1)
-            val user2 = UserTemplate("User2", "User2LastName", 2)
-            val user3 = UserTemplate("User3", "User3LastName", 3)
-
-            arrayList.add(user1)
-            arrayList.add(user2)
-            arrayList.add(user3)
-
-            userRecycler.layoutManager = LinearLayoutManager(this)
-            userRecycler.adapter = UserRecyclerAdapter(arrayList)
         }
     }
 
@@ -147,7 +117,7 @@ class UsersActivity : AppCompatActivity() {
         val progressArray = ArrayList<Int>()
         val progressArray2 = ArrayList<Any>()
 
-        val newUser = User("", "", "", "", "", progressArray2)
+        val newUser = User("", null, "", "", "", progressArray2)
         //generateUserId()
 
         /*
@@ -178,7 +148,7 @@ class UsersActivity : AppCompatActivity() {
         progressArray2.add(progressArray)
 
 
-        newUser.userId = userId.toString()
+        newUser.userId = userId.toLong()
         newUser.firstName = firstName
         newUser.lastName = lastName
         newUser.language = language

@@ -85,7 +85,7 @@ class CreateUserActivity : AppCompatActivity() {
         val progressArray = ArrayList<Int>()
         val progressArray2 = ArrayList<Any>()
 
-        val newUser = User("", "", "", "", "", progressArray2)
+        val newUser = User("", null, "", "", "", progressArray2)
 
         if(intent.hasExtra("userId")){
             userId = intent.getIntExtra("userId", 0)
@@ -105,7 +105,7 @@ class CreateUserActivity : AppCompatActivity() {
         progressArray2.add(progressArray)
         progressArray2.add(progressArray)
 
-        newUser.userId = userId.toString()
+        newUser.userId = userId.toLong()
         newUser.firstName = firstName
         newUser.lastName = lastName
         newUser.language = language
